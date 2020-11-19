@@ -45,6 +45,9 @@ class _QuizPlayState extends State<QuizPlay> with SingleTickerProviderStateMixin
           resetAnim();
           if(index == 9) {
             stopAnim();
+            Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (context) => ResultPage(points)
+            ));
           } else {
             startAnim();
           }
@@ -68,7 +71,7 @@ class _QuizPlayState extends State<QuizPlay> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: index == _questions.length? Center(child: CircularProgressIndicator()) : Container(
+      body: index == _questions.length ? Center(child: CircularProgressIndicator()) : Container(
         padding: EdgeInsets.symmetric(vertical: 80),
         child: Column(
           children: <Widget>[
